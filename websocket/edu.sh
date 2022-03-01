@@ -30,7 +30,7 @@ fi
 akbarvpn="raw.githubusercontent.com/senowahyu62/scriptvps/main/websocket"
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-nontls https://${akbarvpn}/websocket.py
+wget -q -O /usr/local/bin/ws-nontls https://${akbarvpn}/ws-nontls.py
 chmod +x /usr/local/bin/ws-nontls
 
 # Installing Service
@@ -86,7 +86,7 @@ systemctl enable ws-ovpn
 systemctl restart ws-ovpn
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-tls https://${akbarvpn}/ws-tls
+wget -q -O /usr/local/bin/ws-tls https://${akbarvpn}/ws-tls.py
 chmod +x /usr/local/bin/ws-tls
 
 # Installing Service
@@ -102,7 +102,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python -O /usr/local/bin/ws-tls 443
+ExecStart=/usr/bin/python -O /usr/local/bin/ws-tls 6443
 Restart=on-failure
 
 [Install]
